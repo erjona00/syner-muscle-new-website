@@ -486,8 +486,9 @@ function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-card/70 p-5 sm:flex-row sm:p-6">
           <div className="text-sm text-muted">© {new Date().getFullYear()} SynerMuscle</div>
           <div className="flex items-center gap-5 text-sm">
-            <a href="#" className="hover:text-foreground/90 text-muted transition">Privacy</a>
-            <a href="#" className="hover:text-foreground/90 text-muted transition">Contact</a>
+            <a href="/privacy-policy" className="hover:text-foreground/90 text-muted transition">Privacy</a>
+            <a href="/terms" className="hover:text-foreground/90 text-muted transition">Terms</a>
+            <a href="mailto:support@synermuscle.com" className="hover:text-foreground/90 text-muted transition">Contact</a>
           </div>
         </div>
       </Container>
