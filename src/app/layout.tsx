@@ -13,6 +13,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+
 export const metadata: Metadata = {
   title: "SynerMuscle – Early Access",
   description: "Premium, motion-driven fitness app. Join early access.",
