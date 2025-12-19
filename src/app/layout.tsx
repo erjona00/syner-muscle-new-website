@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "SynerMuscle – Early Access",
   description: "Premium, motion-driven fitness app. Join early access.",
   metadataBase: new URL("https://synermuscle.app"),
+  verification: {
+    google: "C26QgfDqBnp0adfqlFbaLeHEjToOwuXEFcPhxDK3u6c",
+  },
   openGraph: {
     title: "SynerMuscle – Early Access",
     description: "Premium, motion-driven fitness app. Join early access.",
