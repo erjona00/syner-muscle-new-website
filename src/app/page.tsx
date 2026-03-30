@@ -9,16 +9,16 @@ import Link from "next/link";
 
 function AnimatedBackground() {
   const { scrollY } = useScroll();
-  
+
   // Create multiple floating gradient shapes with different scroll speeds
   const y1 = useTransform(scrollY, [0, 3000], [0, -150]);
   const y2 = useTransform(scrollY, [0, 3000], [0, -100]);
   const y3 = useTransform(scrollY, [0, 3000], [0, -200]);
   const y4 = useTransform(scrollY, [0, 3000], [0, -120]);
-  
+
   const rotate1 = useTransform(scrollY, [0, 3000], [0, 180]);
   const rotate2 = useTransform(scrollY, [0, 3000], [0, -90]);
-  
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Mobile-optimized gradient shapes - more visible and better positioned */}
@@ -35,7 +35,7 @@ function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         style={{ y: y2, rotate: rotate2 }}
         className="absolute top-1/4 -left-16 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-purple-500/12 to-pink-500/12 blur-2xl sm:blur-3xl"
@@ -49,7 +49,7 @@ function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         style={{ y: y3 }}
         className="absolute bottom-1/3 right-1/3 w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-gradient-to-bl from-cyan-500/10 to-blue-500/10 blur-2xl sm:blur-3xl"
@@ -63,7 +63,7 @@ function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         style={{ y: y4, rotate: rotate1 }}
         className="absolute top-1/2 left-1/4 w-44 h-44 sm:w-72 sm:h-72 rounded-full bg-gradient-to-r from-indigo-500/8 to-purple-500/8 blur-2xl sm:blur-3xl"
@@ -77,7 +77,7 @@ function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      
+
       {/* Mobile accent shapes */}
       <motion.div
         style={{ y: y2 }}
@@ -92,7 +92,7 @@ function AnimatedBackground() {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         style={{ y: y3, rotate: rotate2 }}
         className="absolute bottom-1/4 left-1/3 w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-gradient-to-tr from-emerald-500/10 to-teal-500/10 blur-xl sm:blur-2xl"
@@ -309,9 +309,8 @@ function SignupForm() {
         <motion.div
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`mt-3 text-center text-sm ${
-            isSuccess ? 'text-green-400' : 'text-red-400'
-          }`}
+          className={`mt-3 text-center text-sm ${isSuccess ? 'text-green-400' : 'text-red-400'
+            }`}
         >
           {message}
         </motion.div>
@@ -345,7 +344,7 @@ function StatsStrip() {
           ))}
         </div>
       </Container>
-      
+
       {/* Benefits list aligned with stats */}
       <Container>
         <motion.ul
@@ -490,7 +489,13 @@ function Footer() {
           <div className="flex items-center gap-5 text-sm">
             <Link href="/privacy-policy" className="hover:text-foreground/90 text-muted transition">Privacy</Link>
             <Link href="/terms" className="hover:text-foreground/90 text-muted transition">Terms</Link>
-            <Link href="mailto:support@synermuscle.com" className="hover:text-foreground/90 text-muted transition">Contact</Link>
+            <Link
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=support@gmail.com"
+              target="_blank"
+              className="hover:text-foreground/90 text-muted transition"
+            >
+              Contact
+            </Link>
           </div>
         </div>
       </Container>
