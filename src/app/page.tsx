@@ -19,6 +19,7 @@ function AnimatedBackground() {
   const rotate1 = useTransform(scrollY, [0, 3000], [0, 180]);
   const rotate2 = useTransform(scrollY, [0, 3000], [0, -90]);
 
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Mobile-optimized gradient shapes - more visible and better positioned */}
@@ -112,13 +113,18 @@ function AnimatedBackground() {
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col gap-14 sm:gap-28 px-4 py-10 sm:px-8">
+    <main className="relative flex flex-col gap-14 sm:gap-28 px-4 py-10 sm:px-8 bg-blue-950">
+      <Navbar />
       <AnimatedBackground />
       <Hero />
       <StatsStrip />
       <Features />
+      <Testimonials />
+      <Pricing />
       <FAQ />
+      <DownloadApp />
       <Footer />
+      <ScrollToTopButton />
     </main>
   );
 }
@@ -182,11 +188,44 @@ function ParallaxHeroVisual() {
   );
 }
 
+function Navbar() {
+  return (
+<div className="absolute top-0 left-0 w-full z-50 backdrop-blur-lg bg-black/40 border-b border-white/10">
+      <div className="mx-auto max-w-[1100px] px-4 flex items-center justify-between py-4">
+
+        {/* Logo */}
+        <div className="font-semibold text-lg text-white">
+          <a href="#hero">SynerMuscle</a>
+        </div>
+
+        {/* Links */}
+        <div className="hidden sm:flex gap-6 text-sm text-gray-300">
+          <a href="#hero" className="hover:text-white">Home</a>
+          <a href="#stats" className="hover:text-white">Statistics</a>
+          <a href="#features" className="hover:text-white">Features</a>
+          <a href="#testimonials" className="hover:text-white">Testimonials</a>
+          <a href="#pricing" className="hover:text-white">Pricing</a>
+          <a href="#faq" className="hover:text-white">FAQ</a>
+        </div>
+
+        {/* Button */}
+        <a
+          href="#download"
+          className="bg-gradient-to-r from-blue-400 to-purple-500 px-4 py-2 rounded-lg text-black text-sm"
+        >
+          Download
+        </a>
+      </div>
+    </div>
+  );
+}
+
+
 function Hero() {
   return (
-    <section className="relative">
+    <section id="hero" className="relative">
       <Container>
-        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-card/60 shadow-inner-lg">
+        <div className="mt-0 mb-0 relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-card/100 shadow-inner-lg bg-blue-1000">
           <div className="absolute inset-0 grid-mask" />
           <div className="relative z-10 flex flex-col-reverse items-center gap-8 p-6 sm:flex-row sm:gap-12 sm:p-10">
             <div className="flex-1">
@@ -326,9 +365,9 @@ function StatsStrip() {
     { label: "Global reach", value: "350M" },
   ];
   return (
-    <section className="space-y-6">
+    <section id="stats" className="space-y-6">
       <Container>
-        <div className="grid grid-cols-3 divide-x divide-white/10 overflow-hidden rounded-2xl border border-border bg-card/70 backdrop-blur">
+        <div className="grid grid-cols-3 divide-x divide-white/10 overflow-hidden rounded-2xl border border-border bg-card/70 backdrop-blur bg-gray-900/60">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -392,9 +431,9 @@ function Features() {
     },
   ];
   return (
-    <section>
+    <section id="features">
       <Container>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 bg-gray-900/20">
           {items.map((it, i) => (
             <motion.div
               key={it.title}
@@ -419,7 +458,44 @@ function Features() {
   );
 }
 
-// removed Teaser section per request
+
+function Pricing() {
+  return (
+    <section id="pricing" className="mt-20">
+      <Container>
+        <h2 className="text-2xl font-semibold text-center">Pricing</h2>
+
+        <div className="mt-8 grid sm:grid-cols-3 gap-6">
+          {[
+            { name: "Weekly", oldPrice: "$19,99", price: "$7,99", desc: "€0,61 / week" },
+            { name: "Monthly", oldPrice: "$28,99", price: "$14,99", desc: "€14,99 / week" },
+            { name: "Yearly", oldPrice: "$119,99", price: "$22,99", desc: "€22,99 / week" },
+          ].map((p) => (
+            <div key={p.name} className="p-6 rounded-2xl border bg-card/70 text-center">
+              <h3 className="text-lg font-semibold">{p.name}</h3>
+
+              {/* Old price */}
+              <div className="text-sm text-muted line-through">
+                {p.oldPrice}
+              </div>
+
+              {/* New price */}
+              <div className="text-2xl mt-1 font-bold text-accent">
+                {p.price}
+              </div>
+
+              <p className="text-sm text-muted mt-2">{p.desc}</p>
+
+              {/* <button className="mt-4 px-4 py-2 rounded-lg bg-accent text-black">
+                Choose
+              </button> */}
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
 
 function FAQ() {
   const items = [
@@ -431,11 +507,11 @@ function FAQ() {
     { q: "How much will it cost?", a: "If you join early, you'll win lifetime access with 80% off." },
   ];
   return (
-    <section>
+    <section id="faq">
       <Container>
-        <div className="mx-auto w-full max-w-2xl">
+        <div className="mx-auto w-full max-w-2xl ">
           <h3 className="text-xl sm:text-2xl font-semibold">FAQ</h3>
-          <div className="mt-4 divide-y divide-white/10 rounded-2xl border border-border bg-card/70">
+          <div className="mt-4 divide-y divide-white/30 rounded-2xl border border-border bg-card/70">
             {items.map((item, i) => (
               <Accordion key={i} {...item} />
             ))}
@@ -480,13 +556,162 @@ function Accordion({ q, a }: { q: string; a: string }) {
   );
 }
 
+function ScrollToTopButton() {
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setVisible(window.scrollY > 300); // shfaq buttonin kur scroll > 300px
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // scroll gradual
+    });
+  };
+
+  return (
+    <motion.button
+      onClick={scrollToTop}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 20 }}
+      transition={{ duration: 0.3 }}
+      className="fixed bottom-8 right-8 z-50 rounded-full bg-blue-500/80 p-3 text-white shadow-lg hover:bg-accent/100 active:scale-95"
+      aria-label="Scroll to top"
+    >
+      ↑
+    </motion.button>
+  );
+}
+
+function Testimonials() {
+  const testimonials = [
+    {
+      name: "John Doe",
+      role: "Fitness Coach",
+      text: "SynerMuscle transformed my workouts! The 3D visualizations are incredible."
+    },
+    {
+      name: "Jane Smith",
+      role: "Athlete",
+      text: "Finally a personalized program that understands my goals!"
+    },
+    {
+      name: "Carlos M.",
+      role: "Gym Enthusiast",
+      text: "Easy to follow and really motivating. Highly recommend!"
+    }
+  ];
+
+  const [index, setIndex] = React.useState(0);
+
+  const prevTestimonial = () => {
+    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const nextTestimonial = () => {
+    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <section id="testimonials" className="mt-16">
+      <Container>
+        <div className="relative">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.5 }}
+            className="rounded-2xl border border-border bg-card/60 p-6 text-center shadow-inner-lg"
+          >
+            <p className="text-sm sm:text-base text-muted">{testimonials[index].text}</p>
+            <div className="mt-4 font-semibold">{testimonials[index].name}</div>
+            <div className="text-xs text-muted">{testimonials[index].role}</div>
+          </motion.div>
+
+          {/* Buttons */}
+          <button
+            onClick={prevTestimonial}
+            className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-blue-900/80 p-2 text-white shadow-lg hover:bg-accent/100 active:scale-95"
+            aria-label="Previous testimonial"
+          >
+            ‹
+          </button>
+          <button
+            onClick={nextTestimonial}
+            className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-blue-900/80 p-2 text-white shadow-lg hover:bg-accent/100 active:scale-95"
+            aria-label="Next testimonial"
+          >
+            ›
+          </button>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+
+function DownloadApp() {
+  return (
+    <section id="download" className="mt-4 mb-4 py-6">
+      <Container>
+        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <h3 className="text-3xl font-bold text-white">Get the SynerMuscle App</h3>
+            <p className="mt-2 text-white/80 text-sm sm:max-w-md">
+              Download now on iOS and Android to start your personalized workouts and track your progress anywhere.
+            </p>
+          </div>
+
+          <div className="flex gap-4 mt-4 sm:mt-0">
+            {/* App Store */}
+            <a
+              href="https://apps.apple.com/app/idYOUR_APP_ID"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-black font-semibold shadow-lg hover:shadow-xl transition"
+            >
+              <img
+                src="/apple-logo.svg"
+                alt="Apple Store"
+                className="h-6 w-6"
+              />
+              App Store
+            </a>
+
+            {/* Google Play */}
+            <a
+              href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-black font-semibold shadow-lg hover:shadow-xl transition"
+            >
+              <img
+                src="/google-play-logo.svg"
+                alt="Google Play"
+                className="h-6 w-6"
+              />
+              Google Play
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="pb-16">
+    <footer id="footer" className="pb-20">
       <Container>
-        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-card/70 p-5 sm:flex-row sm:p-6">
+        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-card/70 p-5 sm:flex-row sm:p-6 ">
           <div className="text-sm text-muted">© {new Date().getFullYear()} SynerMuscle</div>
-          <div className="flex items-center gap-5 text-sm">
+          <div className="flex items-center gap-5 text-sm ">
             <Link href="/privacy-policy" className="hover:text-foreground/90 text-muted transition">Privacy</Link>
             <Link href="/terms" className="hover:text-foreground/90 text-muted transition">Terms</Link>
             <Link
