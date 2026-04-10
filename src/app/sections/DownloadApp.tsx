@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react";
 import Container from "../components/layout/Container";
+import Link from "next/link";
 
 // 1️⃣ Funksioni i plotë i DownloadApp
 function DownloadAppContent() {
@@ -9,42 +10,41 @@ function DownloadAppContent() {
       <Container>
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <h3 className="text-3xl font-bold text-white">Get the SynerMuscle App</h3>
+            <h3 className="text-3xl font-bold text-white">
+              Get the SynerMuscle App
+            </h3>
             <p className="mt-2 text-white/80 text-sm sm:max-w-md">
-              Download now on iOS and Android to start your personalized workouts and track your progress anywhere.
+              Download now on iOS and Android to start your personalized
+              workouts and track your progress anywhere.
             </p>
           </div>
 
           <div className="flex gap-4 mt-4 sm:mt-0">
             {/* App Store */}
-            <a
-              href="https://apps.apple.com/app/idYOUR_APP_ID"
+            <Link
+              href="https://apps.apple.com/us/app/synermuscle-workout-tracker/id6760599921"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-black font-semibold shadow-lg hover:shadow-xl transition"
             >
-              <img
-                src="/apple-logo.svg"
-                alt="Apple Store"
-                className="h-6 w-6"
-              />
+              <img src="/app-store.svg" alt="Apple Store" className="h-6 w-6" />
               App Store
-            </a>
+            </Link>
 
             {/* Google Play */}
-            <a
-              href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME"
+            <Link
+              href="/coming-soon"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-black font-semibold shadow-lg hover:shadow-xl transition"
             >
               <img
-                src="/google-play-logo.svg"
+                src="/google-playstore.svg"
                 alt="Google Play"
                 className="h-6 w-6"
               />
               Google Play
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

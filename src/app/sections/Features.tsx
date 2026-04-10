@@ -27,7 +27,7 @@ function FeaturesList() {
   return (
     <section id="features">
       <Container>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 bg-gray-900/20">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {items.map((it, i) => (
             <motion.div
               key={it.title}
@@ -36,7 +36,7 @@ function FeaturesList() {
               viewport={{ once: true }}
               transition={{ delay: 0.05 * i }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card/70 p-5 backdrop-blur transition-shadow hover:shadow-glow"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-blue-900 to-gray-700 p-5 backdrop-blur transition-shadow hover:shadow-glow"
             >
               <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-accent/15 to-highlight/15 opacity-0 blur-2xl transition-opacity group-hover:opacity-100" />
               <div className="flex items-center gap-3">

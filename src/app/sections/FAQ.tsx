@@ -26,7 +26,7 @@ function FAQList() {
   const items = [
     {
       q: "When does early access start?",
-      a: "We'll be releasing in November 2025. Join the list to reserve your spot.",
+      a: "We'll be releasing soon. Join the list to reserve your spot.",
     },
     {
       q: "Which platforms?",

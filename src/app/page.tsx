@@ -8,9 +8,9 @@ import ScrollToTopButton from "./ui/ScrollToTopButton";
 import Hero from "./sections/Hero";
 import StatsStrip from "./sections/StatsStrip";
 import Features from "./sections/Features";
-import Pricing from "./sections/Pricing";
+// import Pricing from "./sections/Pricing";
 import FAQ from "./sections/FAQ";
-import Testimonials from "./sections/Testimonials";
+// import Testimonials from "./sections/Testimonials";
 import DownloadApp from "./sections/DownloadApp";
 
 export default function Home() {
@@ -21,8 +21,8 @@ export default function Home() {
       <Hero />
       <StatsStrip />
       <Features />
-      <Testimonials />
-      <Pricing />
+      {/* <Testimonials /> */}
+      {/* <Pricing /> */}
       <FAQ />
       <DownloadApp />
       <Footer />
