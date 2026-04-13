@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 
 export const metadata: Metadata = {
-  title: "SynerMuscle – Early Access",
+  title: "SynerMuscle",
   description: "Premium, motion-driven fitness app. Join early access.",
   metadataBase: new URL("https://synermuscle.app"),
   verification: {

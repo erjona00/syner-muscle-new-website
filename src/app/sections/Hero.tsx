@@ -63,9 +63,9 @@ export default function Hero() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="text-3xl sm:text-5xl font-semibold tracking-tight leading-[1.1]"
               >
-                SynerMuscle App is coming!
+                The SynerMuscle App is Now Available!
                 <span className="from-accent to-highlight bg-gradient-to-r bg-clip-text text-transparent block mt-2">
-                  Join for Free Early Access
+                  Start Your Fitness Journey Today
                 </span>
               </motion.h1>
               <motion.p
@@ -78,7 +78,7 @@ export default function Hero() {
               </motion.p>
 
               <SocialProof className="mt-5" />
-              <SignupForm />
+              {/* <SignupForm /> */}
             </div>
 
             {/* 3️⃣ Vendosim komponentin ParallaxHeroVisual këtu */}

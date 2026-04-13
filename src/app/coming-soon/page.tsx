@@ -19,7 +19,7 @@ export default function ComingSoonPage() {
         <Container>
           <div className="text-center space-y-6">
             <h1 className="text-4xl sm:text-5xl font-bold">
-              🚀 The application will be launched on Android soon.
+              🚀 The SynerMuscle app will be launched on Android soon
             </h1>
 
             <p className="text-white/70 max-w-xl mx-auto">

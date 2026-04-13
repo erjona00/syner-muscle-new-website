@@ -19,6 +19,7 @@ export default function Navbar() {
           <a href="#hero">Home</a>
           <a href="#stats">Statistics</a>
           <a href="#features">Features</a>
+          <a href="#preview">Preview</a>
           {/* <a href="#testimonials">Testimonials</a> */}
           {/* <a href="#pricing">Plans</a> */}
           <a href="#faq">FAQ</a>

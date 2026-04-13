@@ -12,6 +12,7 @@ import Features from "./sections/Features";
 import FAQ from "./sections/FAQ";
 // import Testimonials from "./sections/Testimonials";
 import DownloadApp from "./sections/DownloadApp";
+import GalleryStrip from "./sections/GalleryStrip"
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
       <StatsStrip />
       <Features />
+      <GalleryStrip />
       {/* <Testimonials /> */}
       {/* <Pricing /> */}
       <FAQ />

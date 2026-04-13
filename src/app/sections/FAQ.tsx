@@ -25,16 +25,20 @@ function Accordion({ q, a }: { q: string; a: string }) {
 function FAQList() {
   const items = [
     {
-      q: "When does early access start?",
-      a: "We'll be releasing soon. Join the list to reserve your spot.",
+      q: "❓ What is SynerMuscle?",
+      a: "SynerMuscle is a high-performance fitness app designed to help you track workouts, build muscle, and optimize your training using data-driven insights and advanced analytics.",
     },
     {
-      q: "Which platforms?",
-      a: "iOS and Android at launch. Web companion shortly after.",
+      q: "❓ Is the SynerMuscle app available now?",
+      a: "SynerMuscle is officially live and available for download on iOS. We’re actively working on the Android version, which will be released soon.",
     },
     {
-      q: "How much will it cost?",
-      a: "If you join early, you'll win lifetime access with 80% off.",
+      q: "❓ How much does it cost?",
+      a: "Start for free and upgrade anytime. Unlock advanced features with flexible premium plans designed to support your fitness journey.",
+    },
+    {
+      q: "❓ Can I cancel my subscription anytime?",
+      a: "Yes — you can cancel anytime. On iOS, subscriptions are managed through the App Store, and on Android through the Google Play Store.",
     },
   ];
 
