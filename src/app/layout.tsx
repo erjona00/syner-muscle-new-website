@@ -46,8 +46,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-full bg-background text-foreground`}
       >
         <div className="relative min-h-screen overflow-x-clip">
-          {/* Mobile-visible but lighter overlay */}
-          <div className="pointer-events-none absolute inset-0 bg-radial-fade opacity-60 sm:opacity-100" />
           {children}
         </div>
       </body>

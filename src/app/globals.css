@@ -3,33 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: #050507;
-  --foreground: #e6e6f0;
-  --muted: #9aa0aa;
-  --card: #0b0b10;
-  --accent: #6366f1; /* indigo-500 */
-  --border: #1e2130;
-  --ring: #8b5cf6; /* violet-500 */
-  --highlight: #22d3ee; /* cyan-400 */
+  --background: #07111f;
+  --foreground: #f6f8fb;
+  --muted: #b7c1d4;
+  --card: #0b1423;
+  --accent: #38bdf8;
+  --border: rgba(255, 255, 255, 0.12);
+  --ring: #60a5fa;
+  --highlight: #34d399;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
-  /* Mobile-first ambient gradients */
-  background:
-    radial-gradient(600px 280px at 50% -10%, rgba(99,102,241,0.18), transparent 65%),
-    radial-gradient(520px 240px at 100% 0%, rgba(34,211,238,0.12), transparent 65%),
-    var(--background);
-  background-attachment: scroll, scroll, scroll;
+  background: var(--background);
+  min-height: 100vh;
 }
 
-/* Scale up the ambience on larger screens */
 @media (min-width: 640px) {
   body {
-    background:
-      radial-gradient(1200px 500px at 50% -10%, rgba(99,102,241,0.16), transparent 60%),
-      radial-gradient(1000px 400px at 90% 10%, rgba(34,211,238,0.12), transparent 60%),
-      var(--background);
+    background: var(--background);
   }
 }
 
@@ -37,26 +33,39 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  /* Grid overlay: subtle and aligned on mobile, enhanced on larger screens */
   .grid-mask {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.08; /* very subtle on mobile */
+    opacity: 0.09;
     background-image: 
-      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size: 20px 20px, 20px 20px;
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px;
     background-position: 0 0, 0 0;
     transform: translateZ(0);
     will-change: opacity;
   }
   @media (min-width: 640px) {
     .grid-mask {
-      opacity: 0.12;
-      background-size: 28px 28px, 28px 28px;
+      opacity: 0.14;
+      background-size: 32px 32px, 32px 32px;
       mask-image: radial-gradient(closest-side, black 45%, transparent);
       -webkit-mask-image: radial-gradient(closest-side, black 45%, transparent);
     }
+  }
+  .glass-panel {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
+      rgba(11, 20, 35, 0.72);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(18px);
+  }
+  .section-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: 0;
   }
 }

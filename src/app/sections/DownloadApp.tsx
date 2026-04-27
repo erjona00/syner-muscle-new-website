@@ -1,50 +1,34 @@
 "use client";
-import * as React from "react";
 import Container from "../components/layout/Container";
-import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
 
-// 1️⃣ Funksioni i plotë i DownloadApp
 function DownloadAppContent() {
   return (
-    <section id="download" className="mt-4 mb-4 py-6">
+    <section id="download" className="py-4">
       <Container>
-        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <h3 className="text-3xl font-bold text-white">
-              Get the SynerMuscle App
-            </h3>
-            <p className="mt-2 text-white/80 text-sm sm:max-w-md">
-              Download now on iOS and Android to start your personalized
-              workouts and track your progress anywhere.
-            </p>
-          </div>
+        <div className="relative overflow-hidden rounded-[1.6rem] border border-white/12 bg-gradient-to-br from-sky-400/18 via-white/[0.07] to-emerald-400/14 p-6 shadow-2xl shadow-sky-950/30 backdrop-blur-xl sm:p-8">
+          <div className="absolute inset-0 grid-mask" />
+          <div className="relative z-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+            <div>
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10">
+                <Download className="h-6 w-6 text-highlight" />
+              </div>
+              <h3 className="text-3xl font-bold tracking-normal text-white">
+                Get the SynerMuscle App
+              </h3>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-white/78">
+                Download now on iOS and Android to start your personalized
+                workouts and track your progress anywhere.
+              </p>
+            </div>
 
-          <div className="flex gap-4 mt-4 sm:mt-0">
-            {/* App Store */}
-            <Link
-              href="https://apps.apple.com/us/app/synermuscle-workout-tracker/id6760599921"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-black font-semibold shadow-lg hover:shadow-xl transition"
+            <a
+              href="/download"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-[#07111f] shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-sky-100 sm:w-auto"
             >
-              <img src="/app-store.svg" alt="Apple Store" className="h-6 w-6" />
-              App Store
-            </Link>
-
-            {/* Google Play */}
-            <Link
-              href="/coming-soon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-black font-semibold shadow-lg hover:shadow-xl transition"
-            >
-              <img
-                src="/google-playstore.svg"
-                alt="Google Play"
-                className="h-6 w-6"
-              />
-              Google Play
-            </Link>
+              GET THE APP NOW
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </Container>
@@ -52,7 +36,6 @@ function DownloadAppContent() {
   );
 }
 
-// 2️⃣ Export default
 export default function DownloadApp() {
   return <DownloadAppContent />;
 }

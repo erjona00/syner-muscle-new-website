@@ -2,26 +2,29 @@
 import * as React from "react";
 import Container from "../components/layout/Container";
 import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
 
-// 🟢 Komponenti i thjeshtë Accordion
 function Accordion({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="border-b border-white/20">
+    <div className="border-b border-white/10 last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center p-4 text-left font-medium"
+        className="flex w-full items-center justify-between gap-4 p-5 text-left font-medium text-white transition hover:bg-white/[0.04]"
       >
-        {q}
-        <span className="ml-2">{open ? "−" : "+"}</span>
+        <span>{q}</span>
+        <Plus
+          className={`h-5 w-5 shrink-0 text-highlight transition duration-300 ${
+            open ? "rotate-45" : ""
+          }`}
+        />
       </button>
-      {open && <p className="px-4 pb-4 text-sm text-muted">{a}</p>}
+      {open && <p className="px-5 pb-5 text-sm leading-6 text-muted">{a}</p>}
     </div>
   );
 }
 
-// 1️⃣ Funksioni FAQ me të gjitha items
 function FAQList() {
   const items = [
     {
@@ -44,21 +47,24 @@ function FAQList() {
 
   return (
     <section id="faq">
-      <Container>
-        <div className="mx-auto w-full max-w-2xl">
-          <h3 className="text-xl sm:text-2xl font-semibold">FAQ</h3>
-          <div className="mt-4 divide-y divide-white/30 rounded-2xl border border-border bg-card/70">
-            {items.map((item, i) => (
-              <Accordion key={i} {...item} />
-            ))}
-          </div>
-        </div>
-      </Container>
-    </section>
+  <Container>
+    <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-1 lg:items-start">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="w-full overflow-hidden rounded-2xl border border-white/12 bg-white/[0.055] backdrop-blur-xl"
+      >
+        {items.map((item, i) => (
+          <Accordion key={i} {...item} />
+        ))}
+      </motion.div>
+    </div>
+  </Container>
+</section>
   );
 }
 
-// 2️⃣ Komponenti kryesor që thërret FAQList
 export default function FAQ() {
   return <FAQList />;
 }
