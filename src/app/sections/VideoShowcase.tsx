@@ -22,9 +22,9 @@ export default function VideoShowcase() {
           />
         </video>
 
-        <div className="absolute inset-0 bg-[#07111f]/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07111f] via-[#07111f]/58 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,transparent_0%,rgba(7,17,31,0.34)_58%,rgba(7,17,31,0.72)_100%)]" />
+        <div className="absolute inset-0 bg-[#07111f]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020817] via-[#07111f]/82 to-[#07111f]/18" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,transparent_0%,rgba(7,17,31,0.44)_52%,rgba(7,17,31,0.82)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         <div className="absolute right-[8%] top-16 hidden h-40 w-40 rounded-full border border-white/15 sm:block">
@@ -37,16 +37,16 @@ export default function VideoShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12%" }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="max-w-xl"
+            className="max-w-xl rounded-[1.4rem] border border-white/12 bg-[#07111f]/42 p-5 shadow-2xl shadow-black/30 backdrop-blur-md sm:p-7"
           >
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-highlight backdrop-blur-xl shadow-xl shadow-black/20">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/14 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200 backdrop-blur-xl shadow-xl shadow-black/20">
               <Play className="h-4 w-4 fill-current" />
               Training in motion
             </div>
-            <h2 className="text-balance text-4xl font-bold leading-[1.05] tracking-normal text-white sm:text-6xl">
+            <h2 className="text-balance text-4xl font-bold leading-[1.05] tracking-normal text-white drop-shadow-[0_4px_22px_rgba(0,0,0,0.65)] sm:text-6xl">
               Visualize every move before you train.
             </h2>
-            <p className="mt-5 max-w-[52ch] text-base leading-7 text-white/76 sm:text-lg">
+            <p className="mt-5 max-w-[52ch] text-base leading-7 text-white/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)] sm:text-lg">
               SynerMuscle brings workout guidance, muscle focus, and performance tracking into a more immersive training experience.
             </p>
           </motion.div>
