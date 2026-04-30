@@ -34,6 +34,15 @@ function ParallaxHeroVisual() {
       className="relative w-full flex-1"
     >
       <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-gradient-to-tr from-accent/40 to-highlight/30 opacity-60 blur-3xl" />
+      <div className="motion-ring pointer-events-none absolute -right-5 top-8 z-10 h-24 w-24 rounded-full border border-dashed border-white/35" />
+      <div className="float-soft pointer-events-none absolute -left-4 top-24 z-10 hidden rounded-2xl border border-white/20 bg-white/80 px-4 py-3 shadow-xl shadow-sky-950/10 backdrop-blur-xl sm:block">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-700">
+          Muscle focus
+        </div>
+        <div className="mt-1 h-1.5 w-28 overflow-hidden rounded-full bg-slate-200">
+          <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-sky-500 to-emerald-500" />
+        </div>
+      </div>
       <div className="relative mx-auto aspect-[1024/917] w-full max-w-[510px] overflow-hidden rounded-[1.5rem] border border-white/15 bg-gradient-to-b from-[#0e1a2d] to-[#07111f] shadow-2xl shadow-sky-950/50">
         <Image
           src="/hero.png"
@@ -46,7 +55,8 @@ function ParallaxHeroVisual() {
         <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/15 bg-black/35 p-3 backdrop-blur-xl">
           <div className="flex items-center justify-between gap-3 text-xs text-white/80">
             <span className="font-medium text-white">Advanced 3D Content</span>
-            <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-emerald-100 ring-1 ring-emerald-300/20">
+            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-400/15 px-3 py-1 text-emerald-100 ring-1 ring-emerald-300/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.9)]" />
               Live
             </span>
           </div>
@@ -67,18 +77,17 @@ export default function Hero() {
     <section id="hero" className="relative">
       <Container>
         <div className="relative overflow-hidden rounded-[1.6rem] glass-panel sm:rounded-[2rem]">
-          <div className="absolute inset-0 grid-mask" />
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
           <div className="relative z-10 flex flex-col-reverse items-center gap-10 p-5 sm:flex-row sm:gap-12 sm:p-8 lg:p-10">
-            <div className="flex-1">
+            <div className="flex-1 sm:-translate-y-4 lg:-translate-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3 py-2 text-xs font-medium text-sky-100"
+                className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/25 bg-white/[0.06] px-3 py-2 text-xs font-medium text-black"
               >
                 <Sparkles className="h-4 w-4 text-highlight" />
-                The SynerMuscle App is Now Available!
+                Unlock your full potential
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -86,8 +95,8 @@ export default function Hero() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="text-balance text-4xl font-bold leading-[1.02] tracking-normal sm:text-6xl"
               >
-                The SynerMuscle App is Now Available!
-                <span className="mt-2 block bg-gradient-to-r from-accent via-white to-highlight bg-clip-text text-transparent">
+               Designed for performance. Built for results.
+                <span className="-mt-1 block pb-2 bg-gradient-to-r from-[#0f172a] via-[#8b5cf6] to-[#d97706] bg-clip-text text-transparent">
                   Start Your Fitness Journey Today
                 </span>
               </motion.h1>
@@ -113,16 +122,16 @@ export default function Hero() {
               </div> */}
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a
-                  href="#download"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#07111f] shadow-xl shadow-sky-950/20 transition hover:-translate-y-0.5 hover:bg-sky-100"
+                {/* <a
+                  href="/start"
+                  className="premium-shine inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#07111f] shadow-xl shadow-sky-950/20 transition hover:-translate-y-0.5 hover:bg-sky-100"
                 >
-                  GET THE APP NOW
+                  Get Started
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </a> */}
                 <a
                   href="#preview"
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-white/10"
                 >
                   Preview
                 </a>

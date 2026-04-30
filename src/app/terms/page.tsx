@@ -3,6 +3,8 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Mail } from "lucide-react";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 
 function Container({ children }: { children: React.ReactNode }) {
   return <div className="mx-auto w-full max-w-[900px]">{children}</div>;
@@ -10,8 +12,10 @@ function Container({ children }: { children: React.ReactNode }) {
 
 export default function TermsAndConditions() {
   return (
-    <main className="relative min-h-screen px-4 py-10 sm:px-8">
-      <Container>
+    <div className="relative min-h-screen overflow-hidden bg-[#07111f] px-4 pt-28 text-slate-200 sm:px-8">
+      <Navbar />
+      <main className="pb-16">
+        <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,20 +23,20 @@ export default function TermsAndConditions() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition mb-8"
+            className="mb-8 inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
 
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-2">
+          <h1 className="mb-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Terms and Conditions
           </h1>
-          <p className="text-muted text-sm mb-8">
+          <p className="mb-8 text-sm text-slate-400">
             Last updated: {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
           </p>
 
-          <div className="space-y-8 text-sm sm:text-base text-muted leading-relaxed">
+          <div className="space-y-8 text-sm leading-relaxed text-slate-300 sm:text-base">
             <Section title="1. Acceptance of Terms">
               <p>
                 By downloading, installing, or using the SynerMuscle mobile application ("App"), you agree to be 
@@ -90,7 +94,7 @@ export default function TermsAndConditions() {
             </Section>
 
             <Section title="7. Health Disclaimer">
-              <p className="font-medium text-foreground">
+              <p className="font-medium text-white">
                 IMPORTANT: The App is intended for informational and educational purposes only.
               </p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -163,19 +167,18 @@ export default function TermsAndConditions() {
             </Section>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted">
-            © {new Date().getFullYear()} SynerMuscle. All rights reserved.
-          </div>
         </motion.div>
-      </Container>
-    </main>
+        </Container>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-lg font-semibold text-foreground mb-3">{title}</h2>
+      <h2 className="mb-3 text-lg font-semibold text-white">{title}</h2>
       {children}
     </section>
   );

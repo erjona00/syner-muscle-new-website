@@ -13,9 +13,11 @@ export default function ScrollToTopButton() {
 
   return (
     <motion.button
+      type="button"
+      aria-label="Scroll to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       animate={{ opacity: visible ? 1 : 0 }}
-      className="fixed bottom-8 right-8 bg-blue-500 p-3 rounded-full text-white"
+      className="fixed bottom-28 right-8 z-50 rounded-full bg-blue-500 p-3 text-white shadow-lg shadow-slate-900/20"
     >
       ↑
     </motion.button>

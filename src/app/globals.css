@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #07111f;
-  --foreground: #f6f8fb;
-  --muted: #b7c1d4;
-  --card: #0b1423;
-  --accent: #38bdf8;
-  --border: rgba(255, 255, 255, 0.12);
-  --ring: #60a5fa;
-  --highlight: #34d399;
+  --background: #ffffff;
+  --foreground: #102033;
+  --muted: #5f6f83;
+  --card: #f7fafc;
+  --accent: #0284c7;
+  --border: rgba(15, 23, 42, 0.12);
+  --ring: #38bdf8;
+  --highlight: #059669;
 }
 
 html {
@@ -33,35 +33,129 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  .grid-mask {
+  .ambient-orb {
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.09;
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 24px 24px, 24px 24px;
-    background-position: 0 0, 0 0;
-    transform: translateZ(0);
-    will-change: opacity;
+    border-radius: 9999px;
+    filter: blur(42px);
+    opacity: 0.42;
+    transform: translate3d(0, 0, 0);
+    animation: ambient-drift 18s ease-in-out infinite alternate;
   }
-  @media (min-width: 640px) {
-    .grid-mask {
-      opacity: 0.14;
-      background-size: 32px 32px, 32px 32px;
-      mask-image: radial-gradient(closest-side, black 45%, transparent);
-      -webkit-mask-image: radial-gradient(closest-side, black 45%, transparent);
+
+  .ambient-orb-one {
+    left: -9rem;
+    top: 7rem;
+    height: 22rem;
+    width: 22rem;
+    background: rgba(56, 189, 248, 0.28);
+  }
+
+  .ambient-orb-two {
+    right: -8rem;
+    top: 28rem;
+    height: 24rem;
+    width: 24rem;
+    background: rgba(5, 150, 105, 0.2);
+    animation-delay: -6s;
+  }
+
+  .ambient-orb-three {
+    bottom: 8rem;
+    left: 28%;
+    height: 18rem;
+    width: 18rem;
+    background: rgba(217, 119, 6, 0.12);
+    animation-delay: -11s;
+  }
+
+  .premium-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-shine::after {
+    content: "";
+    position: absolute;
+    inset: -40% auto -40% -70%;
+    width: 55%;
+    transform: rotate(18deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.44), transparent);
+    transition: left 0.7s ease;
+  }
+
+  .premium-shine:hover::after {
+    left: 125%;
+  }
+
+  .motion-ring {
+    animation: motion-ring 7s linear infinite;
+  }
+
+  .float-soft {
+    animation: float-soft 5.5s ease-in-out infinite;
+  }
+
+  .scroll-sheen {
+    background-size: 220% 100%;
+    animation: scroll-sheen 5s ease-in-out infinite;
+  }
+
+  @keyframes ambient-drift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(2rem, -1.5rem, 0) scale(1.08);
     }
   }
-  .glass-panel {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
-      rgba(11, 20, 35, 0.72);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
-    backdrop-filter: blur(18px);
+
+  @keyframes motion-ring {
+    to {
+      transform: rotate(360deg);
+    }
   }
+
+  @keyframes float-soft {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes scroll-sheen {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ambient-orb,
+    .motion-ring,
+    .float-soft,
+    .scroll-sheen {
+      animation: none;
+    }
+
+    .premium-shine::after {
+      display: none;
+    }
+  }
+
+  .glass-panel {
+  border: 1px solid rgba(100, 116, 139, 0.32);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.46), transparent 38%),
+    linear-gradient(135deg, rgba(203, 213, 225, 0.96), rgba(148, 163, 184, 0.9)),
+    #b9c3d0;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(18px);
+}
+
   .section-title {
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     line-height: 1.1;

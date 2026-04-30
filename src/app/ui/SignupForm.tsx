@@ -73,7 +73,7 @@ export default function SignupForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isLoading}
-            className="w-full rounded-xl border border-border bg-black/40 px-9 py-3 text-sm outline-none ring-0 transition focus:border-accent/60 focus:shadow-glow placeholder:text-muted/70 disabled:opacity-50"
+            className="w-full rounded-xl border border-border bg-slate-50 px-9 py-3 text-sm outline-none ring-0 transition placeholder:text-muted/70 focus:border-accent/60 focus:shadow-glow disabled:opacity-50"
             aria-label="Email address"
             required
           />

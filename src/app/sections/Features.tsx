@@ -44,16 +44,17 @@ function FeaturesList() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.06 * i, duration: 0.45 }}
-                whileHover={{ y: -6 }}
-                className="group relative min-h-[220px] overflow-hidden rounded-2xl border border-white/12 bg-white/[0.055] p-6 backdrop-blur-xl transition duration-300 hover:border-sky-300/35 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-sky-950/30"
+                whileHover={{ y: -8, scale: 1.015 }}
+                className="group relative min-h-[220px] overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm shadow-slate-200/80 backdrop-blur-xl transition duration-300 hover:border-sky-300/70 hover:bg-white hover:shadow-2xl hover:shadow-sky-200/60"
               >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-200 to-transparent" />
                 <div className="absolute -right-10 -top-12 h-36 w-36 rounded-full bg-accent/15 blur-3xl transition group-hover:bg-highlight/20" />
+                <div className="absolute inset-y-0 -left-20 w-16 rotate-12 bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0 transition duration-700 group-hover:left-[120%] group-hover:opacity-100" />
                 <div className="relative">
-                  <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/10">
+                  <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100 bg-emerald-50 transition duration-300 group-hover:rotate-3 group-hover:scale-110 group-hover:border-sky-200 group-hover:bg-sky-50">
                     <Icon className="h-6 w-6 text-highlight" />
                   </div>
-                  <h3 className="text-xl font-semibold tracking-normal text-white">
+                  <h3 className="text-xl font-semibold tracking-normal text-foreground">
                     {it.title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-muted">{it.text}</p>

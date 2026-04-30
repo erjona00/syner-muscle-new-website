@@ -17,7 +17,7 @@ import VideoShowcase from "./sections/VideoShowcase";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col gap-16 overflow-hidden px-4 pb-10 pt-24 sm:gap-24 sm:px-8 sm:pb-14 sm:pt-28">
+    <main className="relative flex min-h-screen flex-col gap-16 overflow-hidden px-4 pb-0 pt-24 sm:gap-24 sm:px-8 sm:pb-0 sm:pt-28">
       <Navbar />
       <AnimatedBackground />
       <Hero />
@@ -26,7 +26,7 @@ export default function Home() {
       <VideoShowcase />
       <GalleryStrip />
       {/* <Testimonials /> */}
-      <Pricing />
+      {/* <Pricing /> */}
       <FAQ />
       <DownloadApp />
       <Footer />

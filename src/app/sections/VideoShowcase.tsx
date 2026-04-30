@@ -1,6 +1,7 @@
 "use client";
 
 import { Play } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function VideoShowcase() {
   return (
@@ -23,12 +24,22 @@ export default function VideoShowcase() {
 
         <div className="absolute inset-0 bg-[#07111f]/35" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#07111f] via-[#07111f]/58 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,transparent_0%,rgba(7,17,31,0.34)_58%,rgba(7,17,31,0.72)_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+        <div className="absolute right-[8%] top-16 hidden h-40 w-40 rounded-full border border-white/15 sm:block">
+          <div className="motion-ring absolute inset-4 rounded-full border border-dashed border-white/20" />
+        </div>
 
         <div className="relative z-10 mx-auto flex min-h-[420px] w-full max-w-[1100px] items-center px-4 py-16 sm:min-h-[560px] sm:px-8">
-          <div className="max-w-xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-highlight backdrop-blur-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-12%" }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="max-w-xl"
+          >
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-highlight backdrop-blur-xl shadow-xl shadow-black/20">
               <Play className="h-4 w-4 fill-current" />
               Training in motion
             </div>
@@ -38,7 +49,7 @@ export default function VideoShowcase() {
             <p className="mt-5 max-w-[52ch] text-base leading-7 text-white/76 sm:text-lg">
               SynerMuscle brings workout guidance, muscle focus, and performance tracking into a more immersive training experience.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
